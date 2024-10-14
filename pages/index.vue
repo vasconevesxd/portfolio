@@ -8,7 +8,7 @@
       <div>
         <div class="location-container">
           <span class="location-info">
-            <IconsGlobe :fillColor="'#fecc55'"></IconsGlobe>
+            <IconsGlobe :fillColor="'#00dc82'"></IconsGlobe>
             Portugal/Lisbon
           </span>
         </div>
