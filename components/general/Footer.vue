@@ -31,7 +31,7 @@ footer {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 3rem auto 1rem auto;
   font-size: 0.825rem;
   align-items: center;
   gap: 1rem;

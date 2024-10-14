@@ -111,7 +111,7 @@ const handleLinkRedirect = (link: string) => {
 <style lang="scss" scoped>
 .main-container {
   display: grid;
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 80%;
   justify-content: center;
 }
 
@@ -238,6 +238,12 @@ const handleLinkRedirect = (link: string) => {
 }
 
 @media (min-width: 768px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    justify-content: center;
+  }
+
   .name {
     line-height: initial;
   }
@@ -256,6 +262,12 @@ const handleLinkRedirect = (link: string) => {
 }
 
 @media (min-width: 1290px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    justify-content: center;
+  }
+
   .name {
     line-height: 1rem;
   }
