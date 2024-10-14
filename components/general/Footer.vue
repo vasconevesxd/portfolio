@@ -1,8 +1,6 @@
 <template>
   <footer>
-    <span class="footer-copyright">
-      &#169; 2024 / Vasco Neves / Build your portfolio with Nuxt
-    </span>
+    <span class="footer-copyright"> &#169; 2024 / Vasco Neves </span>
     <div class="footer-icons">
       <IconsGithub
         :size="{ width: '1.5em', height: '1.5em' }"
