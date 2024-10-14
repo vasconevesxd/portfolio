@@ -48,20 +48,19 @@
       </p>
       <div class="technical-skills-container">
         <h2 class="technical-skills-title">Technical Skills</h2>
-        <div class="technical-skills-icons">
-          <IconsVue :size="{ width: '2em', height: '2em' }"></IconsVue>
-          <IconsNuxt :size="{ width: '2em', height: '2em' }"></IconsNuxt>
-          <IconsPinia :size="{ width: '2em', height: '2em' }"></IconsPinia>
-          <IconsLaravel :size="{ width: '2em', height: '2em' }"></IconsLaravel>
-          <IconsReact :size="{ width: '2em', height: '2em' }"></IconsReact>
-          <IconsRedux :size="{ width: '2em', height: '2em' }"></IconsRedux>
-          <IconsDocker :size="{ width: '2em', height: '2em' }"></IconsDocker>
-          <IconsTypescript
-            :size="{ width: '2em', height: '2em' }"
-          ></IconsTypescript>
-          <IconsTailwindcss
-            :size="{ width: '2em', height: '2em' }"
-          ></IconsTailwindcss>
+        <div class="technical-skills-icons" v-if="technicalIcons.length > 0">
+          <div v-for="technical in technicalIcons" :key="technical.id">
+            <component
+              :is="technical.iconName"
+              :size="{ width: '2em', height: '2em' }"
+              class="technical-skills-icon"
+              :class="[
+                technical.isOver ? 'technical-skills-icon--animation' : '',
+              ]"
+              @mouseover="technical.isOver = true"
+              @mouseleave="technical.isOver = false"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -70,7 +69,20 @@
 </template>
 
 <script lang="ts" setup>
-import { IconsEmail, IconsGithub, IconsLinkedin } from "#components";
+import {
+  IconsEmail,
+  IconsGithub,
+  IconsLinkedin,
+  IconsVue,
+  IconsNuxt,
+  IconsPinia,
+  IconsLaravel,
+  IconsReact,
+  IconsRedux,
+  IconsDocker,
+  IconsTypescript,
+  IconsTailwindcss,
+} from "#components";
 import { type Component, markRaw } from "vue";
 
 const socialLinks = ref<
@@ -82,23 +94,37 @@ const socialLinks = ref<
   }[]
 >([
   {
-    id: 1,
+    id: 0,
     title: "GitHub",
     iconName: markRaw(IconsGithub),
     link: "https://github.com/vasconevesxd",
   },
   {
-    id: 2,
+    id: 1,
     title: "Linkedin",
     iconName: markRaw(IconsLinkedin),
     link: "https://www.linkedin.com/in/vascopneves/",
   },
   {
-    id: 3,
+    id: 2,
     title: "Email",
     iconName: markRaw(IconsEmail),
     link: "mailto:vascopneves.jobs@gmail.com",
   },
+]);
+
+const technicalIcons = ref<
+  { id: number; iconName: Component; isOver: boolean }[]
+>([
+  { id: 0, iconName: markRaw(IconsVue), isOver: false },
+  { id: 1, iconName: markRaw(IconsNuxt), isOver: false },
+  { id: 2, iconName: markRaw(IconsPinia), isOver: false },
+  { id: 3, iconName: markRaw(IconsLaravel), isOver: false },
+  { id: 4, iconName: markRaw(IconsReact), isOver: false },
+  { id: 5, iconName: markRaw(IconsRedux), isOver: false },
+  { id: 6, iconName: markRaw(IconsDocker), isOver: false },
+  { id: 7, iconName: markRaw(IconsTypescript), isOver: false },
+  { id: 8, iconName: markRaw(IconsTailwindcss), isOver: false },
 ]);
 
 const handleLinkRedirect = (link: string) => {
@@ -211,6 +237,18 @@ const handleLinkRedirect = (link: string) => {
   padding-top: 2rem;
 }
 
+@keyframes zoom-in {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 .social-list {
   display: flex;
   padding: 0;
@@ -219,6 +257,7 @@ const handleLinkRedirect = (link: string) => {
   gap: 0.5rem;
   font-weight: 500;
   margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
 .social-item {
@@ -258,6 +297,13 @@ const handleLinkRedirect = (link: string) => {
   .technical-skills-icons {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(4, 1fr);
+    .technical-skills-icon {
+      filter: grayscale(100%);
+      &.technical-skills-icon--animation {
+        animation: 1s ease-out 0s 1 zoom-in;
+        filter: grayscale(0);
+      }
+    }
   }
 }
 
