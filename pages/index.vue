@@ -41,10 +41,10 @@
       </div>
 
       <p class="bio">
-        I am a Software Developer driven by a passion for creating innovative
-        web applications that enhance user experiences. I thrive in
-        collaborative environments, using my skills to solve complex challenges
-        and transform ideas into impactful solutions.
+        I'm a Software Developer who loves turning ideas into interactive web
+        experiences that make people's lives easier. I get a real sense of
+        fulfillment from working with others to tackle tough problems, using my
+        technical skills to bring creative solutions to life
       </p>
       <div class="technical-skills-container">
         <h2 class="technical-skills-title">Technical Skills</h2>
