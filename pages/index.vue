@@ -191,6 +191,7 @@ const handleLinkRedirect = (link: string) => {
   font-weight: 800;
   font-size: 5rem;
   line-height: initial;
+  margin: 1rem auto;
 }
 
 .title-container {
@@ -278,13 +279,12 @@ const handleLinkRedirect = (link: string) => {
 
 @media (min-width: 768px) {
   .main-container {
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-    justify-content: center;
+    grid-template-columns: 20% 60% 20%;
   }
 
   .name {
-    line-height: initial;
+    line-height: 1rem;
+    margin: auto;
   }
 
   .title {
@@ -307,15 +307,26 @@ const handleLinkRedirect = (link: string) => {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1290px) {
+  .main-container {
+    grid-template-columns: 20% 60% 20%;
+  }
+
+  .name {
+    white-space: nowrap;
+    margin: revert;
+  }
+}
+
 @media (min-width: 1290px) {
   .main-container {
-    display: grid;
     grid-template-columns: 30% 40% 30%;
-    justify-content: center;
   }
 
   .name {
     line-height: 1rem;
+    white-space: nowrap;
+    margin: revert;
   }
 
   .title {

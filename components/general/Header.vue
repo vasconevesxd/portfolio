@@ -1,7 +1,7 @@
 <template>
   <header class="container">
     <div class="location">Portugal/Lisbon</div>
-    <div class="centered-content">
+    <div class="content--centered">
       <ul v-if="routerLinks.length > 0" class="router-list">
         <li
           v-for="router in routerLinks"
@@ -79,7 +79,7 @@ const handlePageRedirect = async (routerName: string) => {
   font-size: 0.875rem;
 }
 
-.centered-content {
+.content--centered {
   margin: 0 auto;
 }
 
@@ -92,7 +92,7 @@ const handlePageRedirect = async (routerName: string) => {
   color: var(--white);
   list-style-type: none;
   border: 1px solid var(--scheme-gray-600-30);
-  background-color: var(----static-black-medium);
+  background-color: var(--scheme-gray-100);
   padding: 0.25rem;
   border-radius: 0.75rem;
   gap: 0.25rem;
@@ -174,6 +174,10 @@ const handlePageRedirect = async (routerName: string) => {
     width: auto;
     grid-template-columns: 25% 50% 25%;
     align-items: center;
+  }
+
+  .router-list {
+    background-color: var(--static-black-medium);
   }
 
   .router-title {
