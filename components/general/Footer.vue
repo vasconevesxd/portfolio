@@ -1,6 +1,8 @@
 <template>
   <footer>
-    <span class="footer-copyright"> &#169; 2024 / Vasco Neves </span>
+    <span class="footer-copyright">
+      &#169; {{ new Date().getFullYear() }} / Vasco Neves
+    </span>
     <div class="footer-icons">
       <IconsGithub
         :size="{ width: '1.5em', height: '1.5em' }"
