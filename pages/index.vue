@@ -3,7 +3,11 @@
     <section></section>
     <section>
       <div class="profile-pic-container">
-        <img src="@/assets/img/profile_pic.jpg" class="profile-pic" />
+        <img
+          src="@/assets/img/profile_pic.jpg"
+          class="profile-pic"
+          alt="profile photo of me"
+        />
       </div>
       <div>
         <div class="location-container">

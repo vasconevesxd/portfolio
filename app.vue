@@ -16,8 +16,15 @@ import { SpeedInsights } from "@vercel/speed-insights/vue";
 useHead({
   title: "vasconevesxd",
   meta: [
-    { name: "description", content: "I am Vasco Neves, Software Developer" },
+    {
+      name: "description",
+      content:
+        "Hi my name is Vasco Neves a Software Developer who loves turning ideas into interactive web experiences!",
+    },
   ],
+  htmlAttrs: {
+    lang: "en",
+  },
 });
 </script>
 
