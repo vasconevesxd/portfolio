@@ -71,20 +71,17 @@ const handlePageRedirect = async (routerName: string) => {
 <style lang="scss" scoped>
 .container {
   position: fixed;
-  width: max-content;
+  width: 100%;
   bottom: 1rem;
   left: 0;
   right: 0;
-  padding: 1rem;
   font-size: 0.875rem;
-}
-
-.content--centered {
-  margin: 0 auto;
-}
-
-.location {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .location {
+    display: none;
+  }
 }
 
 .router-list {
@@ -98,20 +95,20 @@ const handlePageRedirect = async (routerName: string) => {
   gap: 0.25rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 8px 12px rgba(0, 0, 0, 0.08),
     0px 8px 16px rgba(0, 0, 0, 0.08);
-}
 
-.router-item {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.75rem;
-  border: 1px solid transparent;
-  transition: background-color 0.5s ease, border-color 0.5s ease;
-  &:hover {
-    background-color: var(--scheme-gray-600-10);
-    border: 1px solid var(--scheme-gray-600-30);
+  .router-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+    &:hover {
+      background-color: var(--scheme-gray-600-10);
+      border: 1px solid var(--scheme-gray-600-30);
+    }
   }
 }
 
@@ -124,36 +121,28 @@ const handlePageRedirect = async (routerName: string) => {
   border: 1px solid var(--scheme-gray-600-30);
 }
 
-.schedule-call {
-  display: none;
-}
-
 .tooltip-box {
   position: relative;
-}
-
-.tooltip-box {
   &:hover .tooltip,
   &:active .tooltip {
     opacity: 1;
   }
-}
-
-.tooltip {
-  color: var(--white);
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 2px;
-  width: 120px;
-  bottom: 160%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 1s;
-  transition-timing-function: cubic-bezier(0.1, 0.5, 0.1);
-  position: absolute;
-  z-index: 1;
-  background-color: var(--scheme-gray-300);
+  .tooltip {
+    color: var(--white);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 2px;
+    width: 120px;
+    bottom: 160%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+    transition-timing-function: cubic-bezier(0.1, 0.5, 0.1);
+    position: absolute;
+    z-index: 1;
+    background-color: var(--scheme-gray-300);
+  }
 }
 
 .text::after {
@@ -174,10 +163,25 @@ const handlePageRedirect = async (routerName: string) => {
     width: auto;
     grid-template-columns: 25% 50% 25%;
     align-items: center;
+    padding: 1rem;
+    .content--centered {
+      margin: 0 auto;
+    }
+
+    .location {
+      display: inline-block;
+      font-weight: 400;
+    }
+
+    .schedule-call {
+      display: flex;
+      justify-content: end;
+    }
   }
 
   .router-list {
     background-color: var(--static-black-medium);
+    width: fit-content;
   }
 
   .router-title {
@@ -186,16 +190,6 @@ const handlePageRedirect = async (routerName: string) => {
 
   .tooltip {
     display: none;
-  }
-
-  .location {
-    display: inline-block;
-    font-weight: 400;
-  }
-
-  .schedule-call {
-    display: flex;
-    justify-content: end;
   }
 }
 </style>
