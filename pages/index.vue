@@ -13,7 +13,7 @@
         <div class="location-container">
           <span class="location-info">
             <IconsGlobe :fillColor="'#00dc82'"></IconsGlobe>
-            Portugal/Lisbon
+            Lisbon, Portugal
           </span>
         </div>
         <div class="language-container">
@@ -53,7 +53,17 @@
       <div class="technical-skills-container">
         <h2 class="technical-skills-title">Technical Skills</h2>
         <div class="technical-skills-icons" v-if="technicalIcons.length > 0">
-          <div v-for="technical in technicalIcons" :key="technical.id">
+          <div
+            v-for="technical in technicalIcons"
+            :key="technical.id"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: 42px;
+            "
+          >
             <component
               :is="technical.iconName"
               :size="{ width: '2em', height: '2em' }"
@@ -64,6 +74,7 @@
               @mouseover="technical.isOver = true"
               @mouseleave="technical.isOver = false"
             />
+            <p>{{ technical.name }}</p>
           </div>
         </div>
       </div>
@@ -118,17 +129,27 @@ const socialLinks = ref<
 ]);
 
 const technicalIcons = ref<
-  { id: number; iconName: Component; isOver: boolean }[]
+  { id: number; iconName: Component; isOver: boolean; name: string }[]
 >([
-  { id: 0, iconName: markRaw(IconsVue), isOver: false },
-  { id: 1, iconName: markRaw(IconsNuxt), isOver: false },
-  { id: 2, iconName: markRaw(IconsPinia), isOver: false },
-  { id: 3, iconName: markRaw(IconsLaravel), isOver: false },
-  { id: 4, iconName: markRaw(IconsReact), isOver: false },
-  { id: 5, iconName: markRaw(IconsRedux), isOver: false },
-  { id: 6, iconName: markRaw(IconsDocker), isOver: false },
-  { id: 7, iconName: markRaw(IconsTypescript), isOver: false },
-  { id: 8, iconName: markRaw(IconsTailwindcss), isOver: false },
+  { id: 0, iconName: markRaw(IconsVue), isOver: false, name: "Vue" },
+  { id: 1, iconName: markRaw(IconsNuxt), isOver: false, name: "Nuxt" },
+  { id: 2, iconName: markRaw(IconsPinia), isOver: false, name: "Pinia" },
+  { id: 3, iconName: markRaw(IconsLaravel), isOver: false, name: "Laravel" },
+  { id: 4, iconName: markRaw(IconsReact), isOver: false, name: "React" },
+  { id: 5, iconName: markRaw(IconsRedux), isOver: false, name: "Redux" },
+  { id: 6, iconName: markRaw(IconsDocker), isOver: false, name: "Docker" },
+  {
+    id: 7,
+    iconName: markRaw(IconsTypescript),
+    isOver: false,
+    name: "Typescript",
+  },
+  {
+    id: 8,
+    iconName: markRaw(IconsTailwindcss),
+    isOver: false,
+    name: "Tailwindcss",
+  },
 ]);
 
 const handleLinkRedirect = (link: string) => {
@@ -221,6 +242,7 @@ const handleLinkRedirect = (link: string) => {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.5rem;
+  text-align: justify;
 }
 
 .technical-skills-container {
