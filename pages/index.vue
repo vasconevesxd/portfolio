@@ -74,7 +74,9 @@
               @mouseover="technical.isOver = true"
               @mouseleave="technical.isOver = false"
             />
-            <p>{{ technical.name }}</p>
+            <p :style="{ color: technical.isOver ? technical.colorName : '' }">
+              {{ technical.name }}
+            </p>
           </div>
         </div>
       </div>
@@ -129,26 +131,76 @@ const socialLinks = ref<
 ]);
 
 const technicalIcons = ref<
-  { id: number; iconName: Component; isOver: boolean; name: string }[]
+  {
+    id: number;
+    iconName: Component;
+    isOver: boolean;
+    name: string;
+    colorName: string;
+  }[]
 >([
-  { id: 0, iconName: markRaw(IconsVue), isOver: false, name: "Vue" },
-  { id: 1, iconName: markRaw(IconsNuxt), isOver: false, name: "Nuxt" },
-  { id: 2, iconName: markRaw(IconsPinia), isOver: false, name: "Pinia" },
-  { id: 3, iconName: markRaw(IconsLaravel), isOver: false, name: "Laravel" },
-  { id: 4, iconName: markRaw(IconsReact), isOver: false, name: "React" },
-  { id: 5, iconName: markRaw(IconsRedux), isOver: false, name: "Redux" },
-  { id: 6, iconName: markRaw(IconsDocker), isOver: false, name: "Docker" },
+  {
+    id: 0,
+    iconName: markRaw(IconsVue),
+    isOver: false,
+    name: "Vue",
+    colorName: "#41B883",
+  },
+  {
+    id: 1,
+    iconName: markRaw(IconsNuxt),
+    isOver: false,
+    name: "Nuxt",
+    colorName: "#00DC82",
+  },
+  {
+    id: 2,
+    iconName: markRaw(IconsPinia),
+    isOver: false,
+    name: "Pinia",
+    colorName: "#ffd04a",
+  },
+  {
+    id: 3,
+    iconName: markRaw(IconsLaravel),
+    isOver: false,
+    name: "Laravel",
+    colorName: "#FF2D20",
+  },
+  {
+    id: 4,
+    iconName: markRaw(IconsReact),
+    isOver: false,
+    name: "React",
+    colorName: "#61DAFB",
+  },
+  {
+    id: 5,
+    iconName: markRaw(IconsRedux),
+    isOver: false,
+    name: "Redux",
+    colorName: "#764ABC",
+  },
+  {
+    id: 6,
+    iconName: markRaw(IconsDocker),
+    isOver: false,
+    name: "Docker",
+    colorName: "#2396ED",
+  },
   {
     id: 7,
     iconName: markRaw(IconsTypescript),
     isOver: false,
     name: "Typescript",
+    colorName: "#3178C6",
   },
   {
     id: 8,
     iconName: markRaw(IconsTailwindcss),
     isOver: false,
     name: "Tailwindcss",
+    colorName: "#44a8b3",
   },
 ]);
 
